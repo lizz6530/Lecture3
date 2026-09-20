@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoTrack — Campus Recycling Rewards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #2E7D32;
+    --color-bg-secondary: #F1F8F2;
+    --color-text: #1A1A1A;
+    --card-radius: 12px;
+    --card-gap: 24px;
+    --section-pad-y: 64px;
+    --section-pad-x: 24px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text);
+    background-color: #FFFFFF;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border: none;
+    border-radius: var(--card-radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #256428;
+    transform: translateY(-2px);
+  }
+
+  section, header, footer {
+    padding: var(--section-pad-y) var(--section-pad-x);
+  }
+
+  /* Header / Hero */
+  .hero {
+    background-color: var(--color-bg-secondary);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    margin-bottom: 32px;
+  }
+
+  /* Section headings */
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 48px;
+    color: var(--color-primary);
+  }
+
+  /* How It Works */
+  .how-it-works {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+
+  .step {
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--card-radius);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+
+  /* Reward Tiers */
+  .reward-tiers {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .tiers-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+
+  .tier-card {
+    background-color: #FFFFFF;
+    border-radius: var(--card-radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-top: 6px solid var(--tier-color, var(--color-primary));
+  }
+
+  .tier-card.bronze { --tier-color: #CD7F32; }
+  .tier-card.silver { --tier-color: #A8A9AD; }
+  .tier-card.gold   { --tier-color: #D4AF37; }
+
+  .tier-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+
+  .tier-points {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--tier-color, var(--color-primary));
+    margin-bottom: 12px;
+  }
+
+  /* Sign-up form */
+  .signup {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .signup-form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .signup-form input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: var(--card-radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .signup-form input:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .signup-form .btn {
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--color-text);
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .steps,
+    .tiers {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 360px) {
+    :root {
+      --section-pad-y: 48px;
+      --section-pad-x: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>EcoTrack</h1>
+    <p>Recycle on campus, earn points, and unlock real rewards.</p>
+    <a href="#signup" class="btn">Sign Up</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="how-it-works" id="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Scan &amp; Recycle</h3>
+        <p>Scan your EcoTrack card at any campus recycling bin before dropping in your recyclables.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Earn Points</h3>
+        <p>Every scan automatically adds points to your account based on what you recycle.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Redeem Rewards</h3>
+        <p>Cash in your points for campus perks once you hit a reward tier.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reward-tiers" id="reward-tiers">
+    <div class="tiers-inner">
+      <h2 class="section-title">Reward Tiers</h2>
+      <div class="tiers">
+        <div class="tier-card bronze">
+          <h3>Bronze</h3>
+          <div class="tier-points">100 points</div>
+          <p>A free reusable EcoTrack water bottle.</p>
+        </div>
+        <div class="tier-card silver">
+          <h3>Silver</h3>
+          <div class="tier-points">300 points</div>
+          <p>$10 campus dining hall credit.</p>
+        </div>
+        <div class="tier-card gold">
+          <h3>Gold</h3>
+          <div class="tier-points">600 points</div>
+          <p>$25 campus bookstore voucher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="signup" id="signup">
+    <h2 class="section-title">Sign Up</h2>
+    <form class="signup-form">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="jane.doe@campus.edu" required>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 EcoTrack Campus Recycling Rewards. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
